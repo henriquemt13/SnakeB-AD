@@ -1,0 +1,199 @@
+<!-- https://3rdstrikebr.fandom.com/pt-br/wiki/Ryu  
+     http://wiki.shoryuken.com/Ken_(3S)
+    LINK DOS GIFS BRO                               -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HTML Fighter</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+
+
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h2>HTML Fighter</h2>
+    </center>
+
+    <center>
+        <div class="container back">
+
+
+            <br> <br>
+            <!-- Btn de ataque do Ryu -->
+            <button type="button" id="bt1" class="btn1 btn-primary" onclick="soco1()">RYU !</button>
+            <!-- Btn de ataque do Ken -->
+            <button type="button" id="bt2" class="btn2 btn-primary" onclick="soco2()">KEN !</button> <br>
+
+            <div class="final">
+
+                <!-- Vida do Ryu -->
+                <div id='a' style="background-color: blue ; width: 300px; height: 20px; float: left"></div>
+                <!-- Div Ryu Vitória -->
+                <div id='vRyu' class="divRyuV" style="display: none; float: left;"></div>
+                <!-- Vida Ken -->
+                <div id='b' style="background-color: red; width: 300px; height: 20px;  float: right;"></div>
+                <!-- Div Ken Vitóia -->
+                <div id='vKen' class='divKenV' style="display: none; float: right"></div>
+            </div>
+            <br><br> <br> <br><br>
+            <!-- Imagem Ryu "estática" -->
+            <img src="imgs/ryuSAFE.gif" alt="" id="dep1" class="ryu">
+            <!-- Imagem Ken "estática"  -->
+            <img src="imgs/kenSAFEZIN.gif" alt="" id="dep2" class="ken">
+
+            <br>
+                <!-- Botão de Reset -->
+            <center><button type="button" id='btnReset' class="btnReset btn-primary" style="display: none"> 
+                <a href="">Reiniciar !</a></button></center>
+
+        </div>
+    </center>
+
+</body>
+
+</html>
+
+<script >
+/*var counter = 0;
+var timer = setInterval(function() {
+  if( counter >= 10 ) {
+    clearInterval( timer );
+  }
+  
+  console.log( counter++ );
+}, 1000);
+*/
+// var counter = 0;
+// var timer = setInterval(function() {
+//   if( counter >= 10 ) {
+//     clearInterval( timer );
+//   }}
+  
+
+
+
+
+
+    function soco1() {
+
+        // var timeeA = setTimeout(), 
+        // timerB, 
+        // timerC;
+
+        //Método de Randomização das imagens
+        var Element = document.getElementById('dep1'),
+            Imgs = [
+                'imgs/ryuSOQUINHO.gif',
+                'imgs/RYUSOQUINHOPRABAIXO.gif',
+                'imgs/SHORYUKEN.gif',
+            ]
+        randomImg = Math.floor(Math.random() * Imgs.length);
+        //Fim do método
+
+        var soco1 = parseInt(b.style.width);
+        soco1 = soco1 - 10;
+        b.style.width = `${soco1}px`;
+
+        //Movimentos Ryu
+        dep1.style.height = '200px';
+        dep1.style.width = '200px';
+
+        //Movimentos Ken
+        dep2.style.height = '250px';
+        dep2.style.width = '250px';
+
+        dep1.src = Imgs[randomImg];
+
+        if (Imgs[randomImg] == 'imgs/SHORYUKEN.gif') {
+            dep1.style.height = '215px';
+            dep1.style.width = '215px';
+
+
+        }
+        dep2.src = 'imgs/KENcaindo.gif';
+
+        if (soco1 < 0) {
+            dep2.src = "imgs/gameover_ken.png";
+
+            bt2.style.display = "none";
+            bt1.style.display = 'none';
+            a.style.display = "none";
+            vRyu.style.display = 'inline';
+            vRyu.innerHTML = "Ryu saiu vitorioso !";
+            btnReset.style.display = 'inline';
+
+
+        }
+        dep1.style.float=' center';
+
+    }
+
+    function soco2() {
+
+        //Método de Randomização das imagens
+        var Element = document.getElementById('dep2'),
+            Imgs = [
+                'imgs/kenCHUTASSO.gif',
+                'imgs/kenSOQUINHO.gif',
+                'imgs/kenCHUTAO.gif',
+            ]
+        randomImg = Math.floor(Math.random() * Imgs.length);
+        //Fim do método
+
+        var soco2 = parseInt(a.style.width);
+        soco2 = soco2 - 10;
+
+        a.style.width = `${soco2}px`;
+
+        //b.style='margin-left:40%'; 
+
+        //Movimentos Ken
+        dep2.style.height = '200px';
+        dep2.style.width = '200px';
+        //Movimentos Ryu
+        dep1.style.height = '250px';
+        dep1.style.width = '250px';
+
+        dep2.src = Imgs[randomImg];
+        dep1.src = 'imgs/ryuCAINOMANO.gif';
+
+        if (Imgs[randomImg] == 'imgs/kenCHUTASSO.gif' || Imgs[randomImg] == 'imgs/kenCHUTAO.gif') {
+            dep2.style.height = '250px';
+            dep2.style.width = '250px';
+
+
+        }
+
+        if (soco2 < 0) {
+            dep1.src = "imgs/gameover_ryu.png";
+            dep1.style = 'tranform: scaleX(1)';
+            bt1.style.display = "none";
+            bt2.style.display = 'none';
+            b.style.display = "none";
+            vKen.style.display = 'inline';
+            vKen.innerHTML = "Ken saiu vitorioso !";
+            btnReset.style.display = 'inline';
+            dep2.src = 'imgs/kenSAFE.gif';
+
+
+        }
+      
+    }
+
+
+
+
+
+</script>
+

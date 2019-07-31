@@ -1,0 +1,53 @@
+vidab {
+    background-color: red; 
+    width: 300px;
+     height: 20px;
+     float: right;
+     position: relative;
+}
+.vidaa{
+    background-color: blue ; 
+    width: 300px; 
+    height: 20px;
+    float: left;
+    position: relative;
+}
+.ryu{
+    width:150px;
+    position:relative;
+    
+
+}
+.ken{
+   
+    width:150px;
+    transform: scaleX(-1);
+    position:relative;
+    
+
+}
+.btn2{
+    width: 300px;
+    float: right;
+    position: relative;
+    
+}
+.btn1{
+    width: 300px;
+     float: left;
+     position: relative; 
+}
+.final{
+    justify-content:space-around;
+    width:97.4%;
+    height: 40px;
+    position: absolute;
+}
+.back{
+
+    background-image: url('imgs/background.jpg');
+    background-size: cover; 
+    height: 450px;
+
+    position:relative;
+    } 

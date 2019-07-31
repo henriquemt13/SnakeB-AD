@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+
+    .back{
+
+        background-image: url('background.jpg');
+        /* background-size: cover; */
+         top: -40%; 
+        
+        position:static;
+    }
+    .a{
+         margin-top: 65%; 
+    }
+    </style>
+</head>
+<body>
+<!--  -->
+
+<div class="container back">
+    
+        <img src="ryu.gif" alt="" id="dep1" style="width:200px; transform: scaleX(-1)" class="a">
+        <img src="ken.gif" alt="" id="dep2"  style="margin-left:40%; width:200px; " class="a">
+
+        <div id='a'  style="background-color: blue ; width: 300px; height: 20px; float: left"></div>
+        
+        <div id='b'style="background-color: red; width: 300px; height: 20px;  float: right;"></div>
+    
+<div id="ab"></div>
+
+        <button type="button" id="bt1" class="btn btn-primary" onclick="soco1()" style="width: 300px">ATACAR !</button>
+
+        <button type="button" id="bt2" class="btn btn-primary" onclick="soco2()"style="width: 300px; margin-left:65%; margin-bottom: 10%">ATACAR !</button>
+
+    </div>
+</body>
+</html>
+
+<script>
+
+
+function soco1()
+{
+    var soco1 = parseInt(b.style.width);
+    soco1 = soco1 - 25 ;
+    b.style.width = `${soco1}px`;
+    if ( soco1 < 0)
+    {
+        dep2.src = "gameover_ken.png";
+        
+        bt2.style.display="none";
+
+    }
+
+
+}
+
+function soco2()
+{
+    
+    var soco2 = parseInt(a.style.width);
+    soco2 = soco2 - 25;
+    a.style.width = `${soco2}px`;
+
+    if ( soco2 < 0)
+    {
+        dep1.src = "gameover_ryu.png";
+        dep1.style = 'tranform: scaleX(1)';
+        bt1.style.display="none";
+
+    }
+;
+}
+
+
+
+</script>
